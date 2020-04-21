@@ -9,7 +9,7 @@ altiv:
   
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/altiv_db?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3307/altiv_db?createDatabaseIfNotExist=true
     username: root
     password: root1234
     driver-class-name: com.mysql.jdbc.Driver
