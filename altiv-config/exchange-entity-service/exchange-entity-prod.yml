@@ -1,6 +1,6 @@
 altiv:
   db:
-    connection: "{ConnectionString:'http://__',userName:'foo',password:'myPassword'}"
+    connection: "{ConnectionString:'http://__',userName:'foo',password:'myLargePassword'}"
     host: 127.0.0.0
     port: 3306
   applicationName: Altiv
