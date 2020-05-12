@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/altiv_db?createDatabaseIfNotExist=true
+    url: jdbc:mysql://mysql-altiv/altiv_db?createDatabaseIfNotExist=true
     username: root
     password: root1234
     driver-class-name: com.mysql.jdbc.Driver
@@ -9,6 +9,27 @@ spring:
       naming: 
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: update
+      
+server:
+  #port: 0
+  port: 8384
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://altiv-discovery-server:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: ${spring.application.name}-${random.int}
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://authorization-server:9292/oauth/check_token
+    client:
+      client-id: mobile
+      client-secret: pin          
         
 #spring:
 #  profiles:
