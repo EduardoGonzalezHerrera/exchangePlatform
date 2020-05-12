@@ -14,7 +14,8 @@ spring:
 security:
   oauth2:
     resource:
-      token-info-uri: http://localhost:9292/oauth/check_token
+      #token-info-uri: http://localhost:9292/oauth/check_token
+      token-info-uri: http://authorization-server/oauth/check_token
     client:
       client-id: mobile
       client-secret: pin       
