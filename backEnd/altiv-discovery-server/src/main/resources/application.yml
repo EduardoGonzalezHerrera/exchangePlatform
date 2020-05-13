@@ -1,0 +1,31 @@
+server:
+  port: 8761
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+zuul:
+  prefix: /api
+  routes:
+    user:
+      path: /user/**
+      url: http://localhost:8384
+    exchange-offer:
+      path: /exchange-offer/**
+      url: http://localhost:8383
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"              
+        
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:9292/oauth/check_token
+    client:
+      client-id: mobile
+      client-secret: pin      
+      
+    
