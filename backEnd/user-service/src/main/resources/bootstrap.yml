@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: user
+  cloud:
+    config:
+      uri:
+      - http://localhost:8888
+      #- http://altiv-config-server:8888  
+server:
+  port: 8384 #0
