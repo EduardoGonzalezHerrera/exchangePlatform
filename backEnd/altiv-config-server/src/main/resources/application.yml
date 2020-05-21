@@ -5,7 +5,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/EduardoGonzalezHerrera/exchangePlatform.git     	
+          uri: https://github.com/EduardoGonzalezHerrera/exchangePlatform.git
+          default-label: dev     	
           search-paths:
           - 'backEnd/'
           - 'altiv-config/*service'
