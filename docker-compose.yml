@@ -1,0 +1,52 @@
+version: "3"
+services:
+  altiv-config-server:
+    image: altiv-config-server
+    ports:
+      - "8888:8888"
+    networks:
+      - altiv-network
+  mysqldb:
+    image: mysql:8
+    networks:
+      - altiv-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=authDB
+  mysql-altiv:
+    image: mysql:8
+    ports:
+      - "3307:3307"
+    networks:
+      - altiv-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=altiv_db      
+  authorization-server:
+    image: authorization-server
+    ports:
+      - "9292:9292"
+    networks:
+      - altiv-network
+    depends_on:
+      - mysqldb
+  altiv-discovery-server:
+    image: altiv-discovery-server
+    ports:
+      - "8761:8761"
+    networks:
+      - altiv-network
+  altiv-user-service:
+    image: altiv-user-service
+    restart: always
+    ports:
+      - "8384:8384"
+    networks:
+      - altiv-network
+    depends_on:
+      - altiv-config-server
+      - altiv-discovery-server
+      - authorization-server              
+ 
+networks:
+  altiv-network: 
